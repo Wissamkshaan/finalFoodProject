@@ -1,0 +1,12 @@
+<h1>Landing Page</h1>
+<h2>All Foods</h2>
+<ul>
+  <% foods.forEach((food) => { %>
+    <li>
+      <h3><%= food.name %></h3>
+      <p>Category: <%= food.category %></p>
+      <p>Price: $<%= food.price.toFixed(2) %></p>
+      <p>Description: <%= food.description %></p>
+    </li>
+  <% }); %>
+</ul>

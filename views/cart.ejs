@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs', { title: 'Cart' }) %>
+
+<h2>Your Cart</h2>
+
+<ul>
+    <% cartItems.forEach((cartItem) => { %>
+      <li>
+        <h3><%= cartItem.foodName %></h3>
+        <p>Price: $<%= cartItem.price.toFixed(2) %></p>
+        <p>Quantity: <%= cartItem.quantity %></p>
+        
+        <a href="/foods/add-to-cart/<%= cartItem.foodId %>">Add to Cart</a>
+      
+        
+      </li>
+    <% }); %>
+  </ul>
+  
+
+<%- include('./partials/footer.ejs') %>

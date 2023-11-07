@@ -1,0 +1,14 @@
+<%- include('./partials/header.ejs', { title: 'Edit Food' }) %>
+
+<h1>Edit Food</h1>
+<form action="/foods/<%= food._id %>" method="post">
+  <input type="text" name="name" placeholder="Name" value="<%= food.name %>" required>
+  <input type="text" name="category" placeholder="Category" value="<%= food.category %>" required>
+  <input type="number" name="price" placeholder="Price" value="<%= food.price %>" required>
+  <input type="text" name="description" placeholder="Description" value="<%= food.description %>" required>
+  <button type="submit">Update Food</button>
+</form>
+
+
+
+

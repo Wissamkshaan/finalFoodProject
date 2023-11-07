@@ -1,18 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const foodsController = require('../controllers/foodsController');
+const foodController = require('../controllers/foodController');
 
-
-const Food = require('../models/Food'); 
-
-// defining foods route
-router.get('/foods', async (req, res) => {
-  try {
-    const foods = await Food.find();
-    res.render('landingPage', { foods });
-  } catch (error) {
-    
-  }
-});
+// Define routes 
+router.get('/foods', foodController.displayFoods);
+router.post('/foods', foodController.createFood);
+router.get('/foods/:id/edit', foodController.editFoodPage);
+router.post('/foods/:id', foodController.updateFood);
+router.get('/foods/:id/delete', foodController.deleteFood);
+router.get('/add-to-cart/:id', foodController.addToCart);
+router.get('/cart', foodController.displayCart);
 
 module.exports = router;

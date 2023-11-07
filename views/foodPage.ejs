@@ -1,0 +1,29 @@
+
+<%- include('./partials/header.ejs', { title: 'Food Page' }) %>
+
+
+<h2>All Foods</h2>
+
+<ul>
+    <% foods.forEach((food) => { %>
+      <li>
+        <h3><%= food.name %></h3>
+        <p>Category: <%= food.category %></p>
+        <p>Price: $<%= food.price.toFixed(2) %></p>
+        <p>Description: <%= food.description %></p>
+        <a href="/foods/<%= food._id %>/edit">Edit</a> | <a href="/foods/<%= food._id %>/delete">Delete</a>
+      
+      <a href="/foods/add-to-cart/<%= food._id %>">Add to Cart</a>
+      </li>
+    <% }); %>
+  </ul>
+  
+<h2>Add New Food</h2>
+<form action="/foods" method="post">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="text" name="category" placeholder="Category" required>
+  <input type="number" name="price" placeholder="Price" required>
+  <input type="text" name="description" placeholder="Description" required>
+  <button type="submit">Add Food</button>
+</form>
+<%- include('./partials/footer.ejs') %>
